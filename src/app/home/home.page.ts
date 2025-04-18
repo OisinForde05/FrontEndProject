@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
-  imports: [IonicModule, CommonModule, FormsModule], // Properly importing necessary modules here
+  imports: [IonicModule, CommonModule, FormsModule], //Importing necessary modules here
 })
 export class HomeComponent {
   constructor(private router: Router) {}
