@@ -1,27 +1,66 @@
-#container {
+ion-content {
+  --background: linear-gradient(to top, #e0f7fa, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+ion-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+ion-card-header {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  background-color: #0288d1;
+  color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-card-title {
+  font-size: 1.5rem;
+  padding: 10px 0;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+ion-card-content {
+  padding: 20px;
+  font-size: 1rem;
+  color: #333;
 }
 
-#container a {
-  text-decoration: none;
+ion-input {
+  --padding-start: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 10px;
+  background: #f9f9f9;
+}
+
+p {
+  margin-top: 15px;
+  font-style: italic;
+  color: #555;
+}
+
+:host {
+  display: block;
+  padding: 1rem;
+}
+
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
