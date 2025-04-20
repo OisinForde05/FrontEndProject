@@ -28,4 +28,10 @@
       </ion-card-content>
     </ion-card>
   </div>
+
+  <!-- Show User's Location -->
+  <div *ngIf="userLocation" class="ion-padding">
+    <h3>Your Location:</h3>
+    <p>{{ userLocation }}</p>
+  </div>
 </ion-content>

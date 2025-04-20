@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.page';
+import { DetailsPage } from './details/details.page';
 
 export const routes: Routes = [
   {
@@ -12,7 +13,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: '',  // Redirect unknown routes to the home page
     pathMatch: 'full'
   }
 ];

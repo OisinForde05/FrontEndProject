@@ -18,23 +18,25 @@ export class DetailsPage implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit() {
-    const city = this.route.snapshot.paramMap.get('city');
-    const dataUrl = 'https://jsonblob.com/api/jsonblob/1208026950785687552';
+    const city = this.route.snapshot.paramMap.get('city');  // Get the city from the route
+    if (city) {
+      const dataUrl = 'https://jsonblob.com/api/jsonblob/1208026950785687552';
 
-    this.http.get<any>(dataUrl).subscribe({
-      next: (data) => {
-        if (city && data[city]) {
-          this.weatherData = data[city];
-          this.loading = false;
-        } else {
-          this.error = 'City not found in data.';
+      this.http.get<any>(dataUrl).subscribe({
+        next: (data) => {
+          if (data[city]) {
+            this.weatherData = data[city];
+            this.loading = false;
+          } else {
+            this.error = 'City not found in data.';
+            this.loading = false;
+          }
+        },
+        error: () => {
+          this.error = 'Failed to load data.';
           this.loading = false;
         }
-      },
-      error: () => {
-        this.error = 'Failed to load data.';
-        this.loading = false;
-      }
-    });
+      });
+    }
   }
 }
