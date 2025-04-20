@@ -1,13 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Details for {{ city }}</ion-title>
+    <ion-title>Weather Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="weatherData">
+<!-- Weather Data -->
+<ion-content *ngIf="!loading && weatherData">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Current Weather in {{ city }}</ion-card-title>
+      <ion-card-title>{{ weatherData.name }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p><strong>Temperature:</strong> {{ weatherData.main.temp }}°C</p>
@@ -20,4 +21,15 @@
       <p><strong>Visibility:</strong> {{ weatherData.visibility / 1000 }} km</p>
     </ion-card-content>
   </ion-card>
+</ion-content>
+
+<!-- Loading State -->
+<ion-content *ngIf="loading">
+  <ion-spinner name="crescent"></ion-spinner>
+  <p style="text-align:center;">Loading weather data...</p>
+</ion-content>
+
+<!-- Error State -->
+<ion-content *ngIf="error">
+  <p style="color:red; text-align:center;">{{ error }}</p>
 </ion-content>

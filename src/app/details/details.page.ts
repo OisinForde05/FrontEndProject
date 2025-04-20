@@ -9,30 +9,31 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [CommonModule, IonicModule],
   templateUrl: './details.page.html',
-  styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-  city: string = '';
   weatherData: any;
+  loading = true;
+  error: string | null = null;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit() {
-    this.city = this.route.snapshot.paramMap.get('city') || 'Dublin';
-    this.fetchWeatherData(this.city);
-  }
+    const city = this.route.snapshot.paramMap.get('city');
+    const dataUrl = 'https://jsonblob.com/api/jsonblob/1208026950785687552';
 
-  fetchWeatherData(city: string) {
-    const apiKey = 'https://jsonblob.com/api/jsonblob/1208026950785687552';
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-    this.http.get(url).subscribe({
-      next: data => {
-        this.weatherData = data;
-        console.log('Weather:', this.weatherData);
+    this.http.get<any>(dataUrl).subscribe({
+      next: (data) => {
+        if (city && data[city]) {
+          this.weatherData = data[city];
+          this.loading = false;
+        } else {
+          this.error = 'City not found in data.';
+          this.loading = false;
+        }
       },
-      error: err => {
-        console.error('Error loading weather data', err);
+      error: () => {
+        this.error = 'Failed to load data.';
+        this.loading = false;
       }
     });
   }

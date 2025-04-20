@@ -4,6 +4,7 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
+import { DetailsPage } from './app/details/details.page';
 
 bootstrapApplication(AppComponent, {
   providers: [
