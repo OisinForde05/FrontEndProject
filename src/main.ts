@@ -1,13 +1,6 @@
-// app.component.ts
-import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { enableProdMode } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
 
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  imports: [IonicModule, CommonModule, RouterModule],
-})
-export class AppComponent {}
+bootstrapApplication(AppComponent)
+  .catch(err => console.error(err));
