@@ -13,6 +13,7 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./home.page.scss'],
   imports: [IonicModule, CommonModule, FormsModule],
 })
+
 export class HomeComponent implements OnInit {
   locations = [
     { city: 'Dublin', temperature: '12°C', note: 'Typical cloudy day in the capital.' },

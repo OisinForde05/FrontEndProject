@@ -3,13 +3,16 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-details',
   standalone: true,
-  imports: [CommonModule, IonicModule],
+  selector: 'app-details',
   templateUrl: './details.page.html',
+  styleUrls: ['./details.page.scss'],
+  imports: [IonicModule, CommonModule, HttpClientModule],
 })
+
 export class DetailsPage implements OnInit {
   weatherData: any;
   loading = true;
